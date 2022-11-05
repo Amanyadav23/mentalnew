@@ -24,32 +24,28 @@ SOFTWARE.
 
 import html
 import os
+from typing import Optional
 
-from telegram import ParseMode, Update, InlineKeyboardMarkup, InlineKeyboardButton
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CallbackQueryHandler, CommandHandler, Filters
 from telegram.utils.helpers import mention_html
-from typing import Optional
 
-from Exon import DRAGONS, dispatcher, LOGGER
+from Exon import DRAGONS, LOGGER, dispatcher
 from Exon.modules.disable import DisableAbleCommandHandler
+from Exon.modules.helper_funcs.alternate import send_message
 from Exon.modules.helper_funcs.chat_status import (
+    ADMIN_CACHE,
     bot_admin,
     can_pin,
     can_promote,
-    is_user_admin,
-    user_can_promote,
     connection_status,
+    is_user_admin,
     user_admin,
-    ADMIN_CACHE,
+    user_can_promote,
 )
-
-from Exon.modules.helper_funcs.extraction import (
-    extract_user,
-    extract_user_and_text,
-)
+from Exon.modules.helper_funcs.extraction import extract_user, extract_user_and_text
 from Exon.modules.log_channel import loggable
-from Exon.modules.helper_funcs.alternate import send_message
 
 
 def user_can_changeinfo(chat, user_admin, id):
@@ -766,7 +762,7 @@ def adminlist(update, context):
         send_message(update.effective_message, "This command only works in Groups.")
         return
 
-    chat = update.effective_chat
+    update.effective_chat
     chat_id = update.effective_chat.id
     chat_name = update.effective_message.chat.title  # -> unused variable
 
@@ -1085,7 +1081,7 @@ dispatcher.add_handler(DEMOTE_HANDLER)
 dispatcher.add_handler(SET_TITLE_HANDLER)
 dispatcher.add_handler(ADMIN_REFRESH_HANDLER)
 
-__mod_name__ = "Admins"
+__mod_name__ = "𝙰ᴅᴍɪɴs"
 __command_list__ = [
     "setdesc" "setsticker" "setgpic" "delgpic" "setgtitle" "adminlist",
     "admins",

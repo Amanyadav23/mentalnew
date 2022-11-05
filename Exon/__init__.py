@@ -176,8 +176,8 @@ if ENV:
     )  # From https://t.me/SpamWatchBot
     BOT_USERNAME = os.environ.get("BOT_USERNAME", "")  # Bot Username
     # Telethon Based String Session (2nd ID) [ From https://repl.it/@SpEcHiDe/GenerateStringSession ]
-    APP_ID = os.environ.get("APP_ID", None)  # 2nd ID
-    APP_HASH = os.environ.get("APP_HASH", None)  # 2nd ID
+    API_ID = os.environ.get("APP_ID", None)  # 2nd ID
+    API_HASH = os.environ.get("APP_HASH", None)  # 2nd ID
     HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", True)  # Heroku App Name
     HEROKU_API_KEY = os.environ.get(
         "HEROKU_API_KEY", True
@@ -244,7 +244,8 @@ else:
     API_HASH = Config.API_HASH
     ARQ_API_URL = Config.ARQ_API_URL
     ARQ_API_KEY = Config.ARQ_API_KEY
-    DB_URL = Config.DB_URL
+    DB_URL = Config.SQLALCHEMY_DATABASE_URI
+    DB_URI = Config.SQLALCHEMY_DATABASE_URI
     DB_URL2 = Config.DB_URL2
     DONATION_LINK = Config.DONATION_LINK
     STRICT_GBAN = Config.STRICT_GBAN
@@ -266,12 +267,12 @@ else:
     REM_BG_API_KEY = Config.REM_BG_API_KEY
     OPENWEATHERMAP_ID = Config.OPENWEATHERMAP_ID
     APP_ID = Config.APP_ID
-    APP_HASH = Config.APP_HASH
+    APP_HASH2 = Config.APP_HASH
     GENIUS_API_TOKEN = Config.GENIUS_API_TOKEN
     # YOUTUBE_API_KEY = Config.YOUTUBE_API_KEY
     HELP_IMG = Config.HELP_IMG
     START_IMG = Config.START_IMG
-    DB_URL = Config.DATABASE_URL
+
     BOT_API_URL = Config.BOT_API_URL
 
 # try:
